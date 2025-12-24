@@ -19,6 +19,13 @@ if (!global.mongoose) {
 }
 
 
+/**
+ * Establishes and returns a shared Mongoose connection, creating and caching it on first use.
+ *
+ * @returns The connected Mongoose instance stored in the module-level cache.
+ * @throws Error if the `MONGODB_URI` environment variable is not defined.
+ * @throws Any error encountered while attempting to connect to MongoDB (the cached connection promise is cleared on failure).
+ */
 async function connectDB(): Promise<typeof mongoose> {
   if (cached.conn) {
     return cached.conn;
