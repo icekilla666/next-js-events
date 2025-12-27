@@ -126,6 +126,12 @@ EventSchema.pre('save', function (next) {
   next();
 });
 
+/**
+ * Create a URL-friendly slug from an event title.
+ *
+ * @param title - The source title to convert into a slug
+ * @returns The generated slug: lowercase, contains only alphanumeric characters and hyphens, collapses consecutive whitespace/hyphens, and has no leading or trailing hyphens
+ */
 function generateSlug(title: string): string {
   return title
     .toLowerCase()
@@ -136,6 +142,13 @@ function generateSlug(title: string): string {
     .replace(/^-|-$/g, ''); 
 }
 
+/**
+ * Convert a parseable date string into a `YYYY-MM-DD` calendar date.
+ *
+ * @param dateString - A string representing a date accepted by the JavaScript `Date` constructor
+ * @returns The date formatted as `YYYY-MM-DD`
+ * @throws If `dateString` cannot be parsed as a valid date
+ */
 function normalizeDate(dateString: string): string {
   const date = new Date(dateString);
   if (isNaN(date.getTime())) {
@@ -144,6 +157,15 @@ function normalizeDate(dateString: string): string {
   return date.toISOString().split('T')[0]; 
 }
 
+/**
+ * Normalize a time string into 24-hour "HH:MM" format.
+ *
+ * Accepts "H:MM", "HH:MM", or those suffixed with "AM"/"PM" (case-insensitive); trims input before parsing.
+ *
+ * @param timeString - The input time string to normalize.
+ * @returns The time formatted as `HH:MM` in 24-hour clock (zero-padded hours).
+ * @throws Error if the input does not match accepted time formats or contains invalid hour/minute values.
+ */
 function normalizeTime(timeString: string): string {
   const timeRegex = /^(\d{1,2}):(\d{2})(\s*(AM|PM))?$/i;
   const match = timeString.trim().match(timeRegex);
