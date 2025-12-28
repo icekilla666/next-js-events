@@ -1,3 +1,4 @@
+import BookEvent from "@/app/components/BookEvent";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
@@ -28,6 +29,15 @@ const EventAgenda = ({ agendaItems }: { agendaItems: string[] }) => (
     </ul>
   </div>
 );
+const EventTags = ({ tagItems }: { tagItems: string[] }) => (
+  <div className="flex flex-row gap-1.5 flex-wrap">
+    {tagItems.map((item) => (
+      <div className="pill" key={item}>
+        {item}
+      </div>
+    ))}
+  </div>
+);
 
 async function EventDetailsPage({
   params,
@@ -48,9 +58,13 @@ async function EventDetailsPage({
       agenda,
       audience,
       tags,
+      organizer,
     },
   } = await request.json();
   if (!description) return notFound();
+
+  const bookings = 10;
+
   return (
     <section id="event">
       <div className="header">
@@ -89,11 +103,29 @@ async function EventDetailsPage({
               label={audience}
             />
           </section>
+
           <EventAgenda agendaItems={agenda} />
+
+          <section className="flex-col-gap-2">
+            <h2>About the Organizer</h2>
+            <p>{organizer}</p>
+          </section>
+
+          <EventTags tagItems={tags} />
         </div>
 
         <aside className="booking">
-          <p className="text-lg font-semibold">Book Event</p>
+          <div className="signup-card">
+            <h2>Book Your Spot</h2>
+            {bookings > 0 ? (
+              <p className="text-sm">
+                Join {bookings} people who have already booked their spot!
+              </p>
+            ) : (
+              <p className="text-sm">Be the first to book your spot!</p>
+            )}
+            <BookEvent />
+          </div>
         </aside>
       </div>
     </section>
