@@ -154,7 +154,7 @@ export async function POST(req: NextRequest) {
     eventData.image = uploadResult.secure_url;
     console.log("Image uploaded:", uploadResult.secure_url);
 
-    const createdEvent = await Event.create(eventData);
+    const createdEvent = await Event.create({...eventData});
     console.log("Event created successfully:", createdEvent._id);
 
     return NextResponse.json(
