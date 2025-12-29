@@ -1,22 +1,24 @@
-import ExploreBtn from "./components/ExploreBtn";
-import EventCard from "./components/EventCard";
+/* eslint-disable react/no-unescaped-entities */
+import EventCard from "@/app/components/EventCard";
+import ExploreBtn from "@/app/components/ExploreBtn";
 import { IEvent } from "@/database";
 import { cacheLife } from "next/cache";
+import events, { EventItem } from "@/lib/constants";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-async function Home() {
+const Page = async () => {
   "use cache";
   cacheLife("hours");
-  const responce = await fetch(`${BASE_URL}/api/events`);
-  const { events } = await responce.json();
+  // const response = await fetch(`${BASE_URL}/api/events`);
+  // const { events } = await response.json();
 
   return (
     <section>
-      <h1 className="text-center mb-5">
-        The Hub for Every Dev <br></br> Event You Can’t Miss
+      <h1 className="text-center">
+        The Hub for Every Dev <br /> Event You Can't Miss
       </h1>
-      <p className="text-center">
+      <p className="text-center mt-5">
         Hackathons, Meetups, and Conferences, All in One Place
       </p>
       <ExploreBtn />
@@ -26,8 +28,8 @@ async function Home() {
         <ul className="events">
           {events &&
             events.length > 0 &&
-            events.map((event: IEvent) => (
-              <li key={event.title}>
+            events.map((event: IEvent | EventItem) => (
+              <li key={event.title} className="list-none">
                 <EventCard {...event} />
               </li>
             ))}
@@ -35,6 +37,6 @@ async function Home() {
       </div>
     </section>
   );
-}
+};
 
-export default Home;
+export default Page;
