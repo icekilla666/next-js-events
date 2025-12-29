@@ -7,8 +7,10 @@ import { cacheLife } from "next/cache";
 
 async function Home() {
   "use cache";
-  cacheLife("seconds");
-  const responce = await fetch(`https://${process.env.NEXT_PUBLIC_BASE_URL}/api/events`);
+  cacheLife("minutes");
+  const responce = await fetch(
+    `https://${process.env.NEXT_PUBLIC_BASE_URL}/api/events`
+  );
   const { events } = await responce.json();
 
   return (
