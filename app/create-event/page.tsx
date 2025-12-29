@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function CreateEventForm() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -41,7 +42,10 @@ export default function CreateEventForm() {
 
       if (response.ok) {
         setMessage(`✅ Успех: ${result.message}`);
-        form.reset();
+        (e.target as HTMLFormElement).reset();
+        await fetch("/api/revalidate?tag=events", {
+          method: "POST",
+        });
       } else {
         setMessage(`❌ Ошибка: ${result.message}`);
       }

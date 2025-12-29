@@ -2,14 +2,20 @@ import ExploreBtn from "./components/ExploreBtn";
 import EventCard from "./components/EventCard";
 import { IEvent } from "@/database";
 import { cacheLife } from "next/cache";
+import { revalidateTag } from "next/cache";
 
 // const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 async function Home() {
   "use cache";
-  cacheLife("minutes");
+  cacheLife("hours");
   const responce = await fetch(
-    `https://${process.env.NEXT_PUBLIC_BASE_URL}/api/events`
+    `http://${process.env.NEXT_PUBLIC_BASE_URL}/api/events`,
+    {
+      next: {
+        tags: ["events"],
+      },
+    }
   );
   const { events } = await responce.json();
 
