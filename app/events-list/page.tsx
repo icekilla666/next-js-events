@@ -101,7 +101,7 @@ function Events() {
               <tr key={event._id}>
                 <td>
                   <a
-                    href={`https://${process.env.VERCEL_URL}/events/${event.slug}`}
+                    href={`https://${process.env.VERCEL_URL}/event/${event.slug}`}
                     className="flex gap-3"
                   >
                     <Image
