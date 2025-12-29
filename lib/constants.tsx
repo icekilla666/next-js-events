@@ -6,6 +6,7 @@ export const events = [
     location: "San Francisco, CA",
     date: "March 15, 2024",
     time: "9:00 AM - 6:00 PM",
+    spot: 400,
   },
   {
     slug: "nextjs-summit",
@@ -14,6 +15,7 @@ export const events = [
     location: "Austin, TX",
     date: "April 22, 2024",
     time: "10:00 AM - 5:00 PM",
+    spot: 300,
   },
   {
     slug: "javascript-world",
@@ -22,6 +24,7 @@ export const events = [
     location: "New York, NY",
     date: "May 8, 2024",
     time: "8:30 AM - 7:00 PM",
+    spot: 1000,
   },
   {
     slug: "ai-hackathon-2024",
@@ -30,6 +33,7 @@ export const events = [
     location: "Seattle, WA",
     date: "June 14-16, 2024",
     time: "48 Hours",
+    spot: 330,
   },
   {
     slug: "web3-developer-meetup",
@@ -38,6 +42,7 @@ export const events = [
     location: "Miami, FL",
     date: "July 20, 2024",
     time: "6:00 PM - 9:00 PM",
+    spot: 200,
   },
   {
     slug: "fullstack-conference",
@@ -46,6 +51,7 @@ export const events = [
     location: "Denver, CO",
     date: "August 12, 2024",
     time: "9:00 AM - 6:00 PM",
+    spot: 100
   },
   {
     slug: "devops-unleashed",
@@ -54,6 +60,7 @@ export const events = [
     location: "Chicago, IL",
     date: "September 5, 2024",
     time: "8:00 AM - 5:30 PM",
+    spot: 100
   },
   {
     slug: "mobile-dev-summit",
@@ -62,6 +69,7 @@ export const events = [
     location: "Los Angeles, CA",
     date: "October 18, 2024",
     time: "9:30 AM - 6:00 PM",
+    spot: 1
   },
   {
     slug: "cybersecurity-conference",
@@ -70,6 +78,7 @@ export const events = [
     location: "Boston, MA",
     date: "November 2, 2024",
     time: "8:00 AM - 7:00 PM",
+    spot: 32
   },
   {
     slug: "data-science-hackathon",
@@ -78,6 +87,7 @@ export const events = [
     location: "San Diego, CA",
     date: "December 7-9, 2024",
     time: "72 Hours",
+    spot: 98
   },
   {
     slug: "cloud-native-meetup",
@@ -86,6 +96,7 @@ export const events = [
     location: "Portland, OR",
     date: "January 15, 2025",
     time: "6:30 PM - 9:00 PM",
+    spot: 12
   },
   {
     slug: "frontend-masters",
@@ -94,5 +105,6 @@ export const events = [
     location: "Nashville, TN",
     date: "February 28, 2025",
     time: "9:00 AM - 5:00 PM",
+    spot: 213
   },
 ];

@@ -266,4 +266,31 @@
       }
     }
   }
+  .button {
+    @apply bg-primary hover:bg-primary/90 cursor-pointer items-center justify-center rounded-[6px] px-4 py-2.5 text-lg font-semibold text-black;
+  }
+  .table-wrapper {
+    border: 1px solid #182830;
+    overflow-x: auto;
+    border-radius: 10px;
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  thead {
+    background-color: #182830;
+  }
+  th {
+    font-weight: 400;
+    text-align: left;
+    padding: 12px 24px;
+  }
+  tbody {
+    background-color: #0d161a;
+  }
+  td {
+    border: 1px solid #182830;
+    padding: 16px 24px;
+  }
 }
