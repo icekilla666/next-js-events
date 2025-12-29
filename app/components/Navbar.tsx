@@ -18,7 +18,7 @@ function Navbar() {
 
         <ul>
           <Link href="/">Home</Link>
-          <Link href="/event">Events</Link>
+          <Link href="/event-list">Events</Link>
           <Link href="/create-event">Create Events</Link>
         </ul>
       </nav>
