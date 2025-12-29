@@ -13,9 +13,7 @@ interface Props {
 function EventCard({ image, title, slug, location, date, time }: Props) {
   return (
     <Link
-      href={`https://${
-        process.env.VERCEL_URL || "localhost:3000"
-      }/api/events/${slug}`}
+      href={`https://${process.env.VERCEL_URL}/events/${slug}`}
       id="event-card"
     >
       <Image
