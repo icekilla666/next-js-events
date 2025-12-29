@@ -1,4 +1,3 @@
-import React from "react";
 import { notFound } from "next/navigation";
 import { IEvent } from "@/database";
 import { getSimilarEventsBySlug } from "@/lib/actions/event.actions";
@@ -7,7 +6,7 @@ import BookEvent from "@/app/components/BookEvent";
 import EventCard from "@/app/components/EventCard";
 import { cacheLife } from "next/cache";
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+// const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const EventDetailItem = ({
   icon,
@@ -52,7 +51,7 @@ const EventDetails = async ({ params }: { params: Promise<string> }) => {
 
   let event;
   try {
-    const request = await fetch(`${BASE_URL}/api/events/${slug}`, {
+    const request = await fetch(`https://${process.env.NEXT_PUBLIC_BASE_URL}/api/events/${slug}`, {
       next: { revalidate: 60 },
     });
 
