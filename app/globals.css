@@ -256,7 +256,7 @@
       div {
         @apply flex flex-col gap-2;
 
-        input {
+        input, textarea {
           @apply bg-dark-200 rounded-[6px] px-5 py-2.5;
         }
       }
@@ -292,5 +292,17 @@
   td {
     border: 1px solid #182830;
     padding: 16px 24px;
+  }
+
+  .create-event {
+    background-color: #0d161a;
+    border-radius: 10px;
+    border: 1px solid #182830;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 700px;
+    width: 100%;
   }
 }

@@ -6,14 +6,14 @@ export interface IEvent extends Document {
   description: string;
   overview: string;
   image: string;
-  venue: string;
+  venue?: string;
   location: string;
   date: string;
   time: string;
   mode: string;
-  audience: string;
-  agenda: string[];
-  organizer: string;
+  audience?: string;
+  agenda?: string[];
+  organizer?: string;
   tags: string[];
   createdAt: Date;
   updatedAt: Date;
