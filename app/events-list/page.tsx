@@ -80,7 +80,9 @@ function Events() {
     <section className="flex flex-col gap-10">
       <div className="flex align-center justify-between">
         <h1>Event Management</h1>
-        <a href="/create-event" className="button inline-flex">Add New Event</a>
+        <a href="/create-event" className="button inline-flex">
+          Add New Event
+        </a>
       </div>
       <div className="table-wrapper">
         <table className="w-full">
@@ -98,7 +100,12 @@ function Events() {
             {events.map((event) => (
               <tr key={event._id}>
                 <td>
-                  <a href={`event/${event.slug}`} className="flex gap-3">
+                  <a
+                    href={`https://${
+                      process.env.VERCEL_URL || "localhost:3000"
+                    }/api/events/${event.slug}`}
+                    className="flex gap-3"
+                  >
                     <Image
                       src={event.image}
                       alt="photo"
